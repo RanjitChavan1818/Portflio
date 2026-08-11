@@ -171,28 +171,6 @@ export function RoyalGate() {
             </svg>
           </div>
 
-          {/* flanking pillars */}
-          <div
-            className="absolute bottom-0 left-[calc(50%-min(26vw,268px))] w-[68px] -translate-x-full"
-            style={{ height: "88%" }}
-          >
-            <StoneBlock className="inset-0" />
-            <div
-              className="absolute -top-5 -right-3 -left-3 h-6"
-              style={{ backgroundImage: "var(--gradient-brass)", filter: "brightness(0.7)" }}
-            />
-          </div>
-          <div
-            className="absolute right-[calc(50%-min(26vw,268px))] bottom-0 w-[68px] translate-x-full"
-            style={{ height: "88%" }}
-          >
-            <StoneBlock className="inset-0" />
-            <div
-              className="absolute -top-5 -right-3 -left-3 h-6"
-              style={{ backgroundImage: "var(--gradient-brass)", filter: "brightness(0.7)" }}
-            />
-          </div>
-
           {/* torches */}
           <Torch
             className="bottom-[30%] left-[calc(50%-min(34vw,360px))]"
