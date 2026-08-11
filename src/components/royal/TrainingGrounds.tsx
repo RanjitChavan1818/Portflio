@@ -77,18 +77,26 @@ export function TrainingGrounds() {
 
         <div className="mt-10 grid flex-1 items-center gap-10 lg:grid-cols-[1fr_1.1fr]">
           {/* the weapons rack */}
-          <div className="relative">
+          <div
+            className="relative rounded-md p-4"
+            style={{
+              background:
+                "linear-gradient(180deg, oklch(0.18 0.02 50 / 0.92), oklch(0.12 0.015 45 / 0.95))",
+              border: "1px solid oklch(0.45 0.08 62 / 0.45)",
+              boxShadow: "0 24px 60px oklch(0 0 0 / 0.6), inset 0 0 40px oklch(0 0 0 / 0.5)",
+            }}
+          >
             <div
-              className="absolute inset-x-0 -top-3 h-4 wood-surface rounded-sm"
+              className="wood-surface absolute inset-x-3 top-2 h-3 rounded-sm"
               aria-hidden
               style={{ boxShadow: "0 6px 16px oklch(0 0 0 / 0.6)" }}
             />
             <div
-              className="absolute inset-x-0 bottom-0 h-5 wood-surface rounded-sm"
+              className="wood-surface absolute inset-x-3 bottom-2 h-4 rounded-sm"
               aria-hidden
               style={{ boxShadow: "0 8px 20px oklch(0 0 0 / 0.6)" }}
             />
-            <ul className="grid grid-cols-4 gap-2 px-2 py-6 sm:grid-cols-6 lg:grid-cols-4">
+            <ul className="grid grid-cols-4 gap-x-1 gap-y-3 px-1 py-6">
               {SKILLS.map((s) => {
                 const isActive = active?.name === s.name;
                 return (
@@ -96,18 +104,14 @@ export function TrainingGrounds() {
                     <motion.button
                       onClick={() => select(s)}
                       aria-pressed={isActive}
-                      className="group flex flex-col items-center rounded-sm px-1 py-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
+                      className="group flex w-full flex-col items-center rounded-sm px-1 py-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none"
                       whileHover={{ y: -6 }}
                       whileTap={{ scale: 0.94 }}
-                      animate={
-                        isActive
-                          ? { opacity: 0.25, y: -4 }
-                          : { opacity: 1, y: 0 }
-                      }
+                      animate={isActive ? { opacity: 0.25, y: -4 } : { opacity: 1, y: 0 }}
                       transition={{ type: "spring", stiffness: 320, damping: 22 }}
                     >
                       <Sword width={16} />
-                      <span className="mt-1 max-w-[8ch] text-center font-royal text-[9px] leading-tight tracking-wider text-foreground/75 uppercase group-hover:text-primary">
+                      <span className="mt-1 max-w-[9ch] text-center font-royal text-[9px] leading-tight tracking-wider text-foreground/75 uppercase group-hover:text-primary">
                         {s.name}
                       </span>
                     </motion.button>
@@ -116,6 +120,7 @@ export function TrainingGrounds() {
               })}
             </ul>
           </div>
+
 
           {/* centre stage */}
           <div className="relative flex min-h-[380px] flex-col items-center justify-center">
