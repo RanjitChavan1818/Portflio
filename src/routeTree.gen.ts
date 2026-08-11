@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChronicleRouteImport } from './routes/chronicle'
+import { Route as HallOfVictoriesRouteImport } from './routes/hall-of-victories'
+import { Route as MapRoomRouteImport } from './routes/map-room'
+import { Route as NextChapterRouteImport } from './routes/next-chapter'
+import { Route as RoyalArchivesRouteImport } from './routes/royal-archives'
+import { Route as ScholarsLibraryRouteImport } from './routes/scholars-library'
+import { Route as TrainingGroundsRouteImport } from './routes/training-grounds'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChronicleRoute = ChronicleRouteImport.update({
+  id: '/chronicle',
+  path: '/chronicle',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HallOfVictoriesRoute = HallOfVictoriesRouteImport.update({
+  id: '/hall-of-victories',
+  path: '/hall-of-victories',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapRoomRoute = MapRoomRouteImport.update({
+  id: '/map-room',
+  path: '/map-room',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NextChapterRoute = NextChapterRouteImport.update({
+  id: '/next-chapter',
+  path: '/next-chapter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoyalArchivesRoute = RoyalArchivesRouteImport.update({
+  id: '/royal-archives',
+  path: '/royal-archives',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScholarsLibraryRoute = ScholarsLibraryRouteImport.update({
+  id: '/scholars-library',
+  path: '/scholars-library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrainingGroundsRoute = TrainingGroundsRouteImport.update({
+  id: '/training-grounds',
+  path: '/training-grounds',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chronicle': typeof ChronicleRoute
+  '/hall-of-victories': typeof HallOfVictoriesRoute
+  '/map-room': typeof MapRoomRoute
+  '/next-chapter': typeof NextChapterRoute
+  '/royal-archives': typeof RoyalArchivesRoute
+  '/scholars-library': typeof ScholarsLibraryRoute
+  '/training-grounds': typeof TrainingGroundsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chronicle': typeof ChronicleRoute
+  '/hall-of-victories': typeof HallOfVictoriesRoute
+  '/map-room': typeof MapRoomRoute
+  '/next-chapter': typeof NextChapterRoute
+  '/royal-archives': typeof RoyalArchivesRoute
+  '/scholars-library': typeof ScholarsLibraryRoute
+  '/training-grounds': typeof TrainingGroundsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chronicle': typeof ChronicleRoute
+  '/hall-of-victories': typeof HallOfVictoriesRoute
+  '/map-room': typeof MapRoomRoute
+  '/next-chapter': typeof NextChapterRoute
+  '/royal-archives': typeof RoyalArchivesRoute
+  '/scholars-library': typeof ScholarsLibraryRoute
+  '/training-grounds': typeof TrainingGroundsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/chronicle'
+    | '/hall-of-victories'
+    | '/map-room'
+    | '/next-chapter'
+    | '/royal-archives'
+    | '/scholars-library'
+    | '/training-grounds'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/chronicle'
+    | '/hall-of-victories'
+    | '/map-room'
+    | '/next-chapter'
+    | '/royal-archives'
+    | '/scholars-library'
+    | '/training-grounds'
+  id:
+    | '__root__'
+    | '/'
+    | '/chronicle'
+    | '/hall-of-victories'
+    | '/map-room'
+    | '/next-chapter'
+    | '/royal-archives'
+    | '/scholars-library'
+    | '/training-grounds'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChronicleRoute: typeof ChronicleRoute
+  HallOfVictoriesRoute: typeof HallOfVictoriesRoute
+  MapRoomRoute: typeof MapRoomRoute
+  NextChapterRoute: typeof NextChapterRoute
+  RoyalArchivesRoute: typeof RoyalArchivesRoute
+  ScholarsLibraryRoute: typeof ScholarsLibraryRoute
+  TrainingGroundsRoute: typeof TrainingGroundsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +143,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chronicle': {
+      id: '/chronicle'
+      path: '/chronicle'
+      fullPath: '/chronicle'
+      preLoaderRoute: typeof ChronicleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hall-of-victories': {
+      id: '/hall-of-victories'
+      path: '/hall-of-victories'
+      fullPath: '/hall-of-victories'
+      preLoaderRoute: typeof HallOfVictoriesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/map-room': {
+      id: '/map-room'
+      path: '/map-room'
+      fullPath: '/map-room'
+      preLoaderRoute: typeof MapRoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/next-chapter': {
+      id: '/next-chapter'
+      path: '/next-chapter'
+      fullPath: '/next-chapter'
+      preLoaderRoute: typeof NextChapterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/royal-archives': {
+      id: '/royal-archives'
+      path: '/royal-archives'
+      fullPath: '/royal-archives'
+      preLoaderRoute: typeof RoyalArchivesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scholars-library': {
+      id: '/scholars-library'
+      path: '/scholars-library'
+      fullPath: '/scholars-library'
+      preLoaderRoute: typeof ScholarsLibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/training-grounds': {
+      id: '/training-grounds'
+      path: '/training-grounds'
+      fullPath: '/training-grounds'
+      preLoaderRoute: typeof TrainingGroundsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChronicleRoute: ChronicleRoute,
+  HallOfVictoriesRoute: HallOfVictoriesRoute,
+  MapRoomRoute: MapRoomRoute,
+  NextChapterRoute: NextChapterRoute,
+  RoyalArchivesRoute: RoyalArchivesRoute,
+  ScholarsLibraryRoute: ScholarsLibraryRoute,
+  TrainingGroundsRoute: TrainingGroundsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
