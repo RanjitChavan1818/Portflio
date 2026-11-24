@@ -24,7 +24,7 @@ function ProfileSeal({ open }: { open: boolean }) {
       "
     >
       <img
-        src="public/images/profile.jpeg"
+        src="/images/profile.jpeg"
         alt="Profile"
         className="h-full w-full rounded-full object-cover object-center"
         draggable={false}
