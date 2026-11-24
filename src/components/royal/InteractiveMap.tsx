@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
@@ -5,11 +6,26 @@ import { CHAPTERS, type Chapter } from "@/lib/journey";
 import { RoyalButton } from "./RoyalButton";
 import kingdomMap from "@/assets/kingdom-map.jpg";
 
+/** Play location selection sound */
+function playLocationSound() {
+  const audio = new Audio("/sounds/go.mp3");
+  audio.volume = 0.5;
+  audio.play().catch(() => {
+    // Prevent audio errors from affecting map interaction.
+  });
+}
+
 /** Tiny hand-inked fortress / building glyphs drawn in iron-gall ink. */
 function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
   const ink = lit ? "oklch(0.4 0.14 32)" : "oklch(0.32 0.06 44)";
   const fill = lit ? "oklch(0.78 0.09 72)" : "oklch(0.72 0.06 74)";
-  const common = { stroke: ink, strokeWidth: 1.6, fill, strokeLinejoin: "round" as const };
+  const common = {
+    stroke: ink,
+    strokeWidth: 1.6,
+    fill,
+    strokeLinejoin: "round" as const,
+  };
+
   return (
     <svg viewBox="0 0 44 40" width="42" height="38" aria-hidden className="overflow-visible">
       {kind === 0 && (
@@ -19,6 +35,7 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
           <path d="M4 16 h36" fill="none" stroke={ink} strokeWidth="1.2" />
         </>
       )}
+
       {kind === 1 && (
         <>
           <path d="M8 36 V14 l14-9 14 9 v22 z" {...common} />
@@ -26,6 +43,7 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
           <path d="M22 5 v-4" stroke={ink} strokeWidth="1.2" />
         </>
       )}
+
       {kind === 2 && (
         <>
           <path d="M10 36 V12 h24 v24 z" {...common} />
@@ -33,6 +51,7 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
           <path d="M16 36 v-10 h5 v10 M25 22 h5 v6 h-5 z" fill="none" stroke={ink} strokeWidth="1.3" />
         </>
       )}
+
       {kind === 3 && (
         <>
           <path d="M12 36 V18 a10 10 0 0 1 20 0 v18 z" {...common} />
@@ -40,6 +59,7 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
           <path d="M22 8 v-6 M18 4 h8" stroke={ink} strokeWidth="1.2" fill="none" />
         </>
       )}
+
       {kind === 4 && (
         <>
           <path d="M6 36 V20 h8 V12 h16 v8 h8 v16 z" {...common} />
@@ -47,7 +67,8 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
           <path d="M18 36 v-8 h8 v8" fill="none" stroke={ink} strokeWidth="1.4" />
         </>
       )}
-      {/* ink shading hatch */}
+
+      {/* Ink shading hatch */}
       <path
         d="M8 34 l4 -4 M14 34 l5 -5 M22 34 l5 -5 M30 34 l4 -4"
         stroke={ink}
@@ -62,7 +83,6 @@ function MapBuilding({ kind, lit }: { kind: number; lit: boolean }) {
 /**
  * The commander's parchment: an aged hand-drawn territory with illustrated
  * fortresses, ink routes that draw themselves and candle-lit hover pooling.
- * Parchment, locations, routes and table props are separate objects.
  */
 export function InteractiveMap({
   selected,
@@ -74,22 +94,34 @@ export function InteractiveMap({
   const [hover, setHover] = useState<string | null>(null);
 
   const camera = selected
-    ? { scale: 1.32, x: (50 - selected.x) * 0.9, y: (50 - selected.y) * 0.7 }
+    ? {
+        scale: 1.32,
+        x: (50 - selected.x) * 0.9,
+        y: (50 - selected.y) * 0.7,
+      }
     : { scale: 1, x: 0, y: 0 };
 
-  const selectedIndex = selected ? CHAPTERS.findIndex((c) => c.to === selected.to) : -1;
+  const selectedIndex = selected
+    ? CHAPTERS.findIndex((c) => c.to === selected.to)
+    : -1;
 
   return (
     <div
       className="relative w-full select-none"
-      style={{ aspectRatio: "16 / 10", filter: "drop-shadow(0 34px 44px oklch(0 0 0 / 0.85))" }}
+      style={{
+        aspectRatio: "16 / 10",
+        filter: "drop-shadow(0 34px 44px oklch(0 0 0 / 0.85))",
+      }}
     >
       <motion.div
         className="absolute inset-0 overflow-hidden"
-        animate={{ scale: camera.scale, x: `${camera.x}%`, y: `${camera.y}%` }}
+        animate={{
+          scale: camera.scale,
+          x: `${camera.x}%`,
+          y: `${camera.y}%`,
+        }}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          // torn / burnt parchment silhouette, not a clean rectangle
           clipPath:
             "polygon(1% 4%, 8% 1%, 22% 3%, 36% 0.5%, 52% 3%, 68% 0%, 82% 3%, 95% 1%, 99% 6%, 98% 20%, 100% 38%, 98.5% 55%, 100% 72%, 98% 88%, 99% 96%, 88% 99%, 72% 97%, 56% 100%, 40% 97%, 24% 100%, 10% 97%, 2% 99%, 0.5% 84%, 2% 66%, 0% 48%, 1.5% 30%)",
         }}
@@ -103,7 +135,7 @@ export function InteractiveMap({
           loading="lazy"
         />
 
-        {/* candle pooling + parchment shading */}
+        {/* Candle pooling + parchment shading */}
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 mix-blend-multiply"
@@ -113,7 +145,7 @@ export function InteractiveMap({
           }}
         />
 
-        {/* ink routes drawn between locations */}
+        {/* Ink routes drawn between locations */}
         <svg
           viewBox="0 0 100 62"
           className="pointer-events-none absolute inset-0 h-full w-full"
@@ -124,6 +156,7 @@ export function InteractiveMap({
             const lit = selectedIndex >= 0 && i < selectedIndex;
             const midX = (c.x + n.x) / 2 + (i % 2 ? 5 : -5);
             const midY = (((c.y + n.y) / 2) * 0.62) - 5;
+
             return (
               <motion.path
                 key={c.to}
@@ -136,21 +169,29 @@ export function InteractiveMap({
                 opacity={lit ? 0.95 : 0.45}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
-                transition={{ duration: 1.6, delay: 0.2 + i * 0.12, ease: "easeInOut" }}
+                transition={{
+                  duration: 1.6,
+                  delay: 0.2 + i * 0.12,
+                  ease: "easeInOut",
+                }}
                 style={{ filter: "blur(0.12px)" }}
               />
             );
           })}
         </svg>
 
-        {/* illustrated locations */}
+        {/* Illustrated locations */}
         {CHAPTERS.map((c, i) => {
           const active = selected?.to === c.to;
           const isHover = hover === c.to;
+
           return (
             <motion.button
               key={c.to}
-              onClick={() => onSelect(c)}
+              onClick={() => {
+                playLocationSound();
+                onSelect(c);
+              }}
               onMouseEnter={() => setHover(c.to)}
               onMouseLeave={() => setHover(null)}
               className="absolute -translate-x-1/2 -translate-y-full focus-visible:outline-none"
@@ -161,10 +202,15 @@ export function InteractiveMap({
                 y: active || isHover ? -6 : 0,
                 scale: active ? 1.25 : isHover ? 1.12 : 1,
               }}
-              transition={{ delay: 0.25 + i * 0.07, type: "spring", stiffness: 240, damping: 22 }}
+              transition={{
+                delay: 0.25 + i * 0.07,
+                type: "spring",
+                stiffness: 240,
+                damping: 22,
+              }}
               aria-label={c.name}
             >
-              {/* warm candlelight pooling under the raised marker */}
+              {/* Warm candlelight pooling under the raised marker */}
               <motion.span
                 aria-hidden
                 className="absolute top-full left-1/2 -translate-x-1/2 rounded-full"
@@ -178,16 +224,25 @@ export function InteractiveMap({
                   filter: "blur(5px)",
                 }}
               />
+
               <span
                 aria-hidden
-                className="absolute top-full left-1/2 h-2 w-8 -translate-x-1/2 rounded-full"
-                style={{ background: "oklch(0.3 0.05 44 / 0.35)", filter: "blur(3px)" }}
-              />
-              <MapBuilding kind={i % 5} lit={active || isHover} />
-              <span
-                className="absolute top-full left-1/2 mt-1 -translate-x-1/2 font-script text-[9px] whitespace-nowrap italic"
+                className="absolute top-full left-1/2 h-2 w-48 -translate-x-1/2 rounded-full"
                 style={{
-                  color: active || isHover ? "oklch(0.36 0.16 30)" : "oklch(0.34 0.06 44 / 0.8)",
+                  background: "oklch(0.3 0.05 44 / 0.35)",
+                  filter: "blur(3px)",
+                }}
+              />
+
+              <MapBuilding kind={i % 5} lit={active || isHover} />
+
+              <span
+                className="absolute top-full left-1/2 mt-1 -translate-x-1/2 text-[20px] whitespace-nowrap italic-bold"
+                style={{
+                  color:
+                    active || isHover
+                      ? "oklch(0.36 0.16 30)"
+                      : "oklch(0.34 0.06 44 / 0.8)",
                   textShadow: "0 1px 0 oklch(0.92 0.05 84 / 0.6)",
                 }}
               >
@@ -225,8 +280,12 @@ export function MapLocationCard({ chapter }: { chapter: Chapter }) {
           <p className="font-script text-xs tracking-wide text-[oklch(0.4_0.11_34)] italic">
             Location {String(chapter.n).padStart(2, "0")} · {chapter.subtitle}
           </p>
-          <h2 className="mt-1 font-royal text-2xl text-[oklch(0.26_0.05_42)]">{chapter.name}</h2>
+
+          <h2 className="mt-1 font-royal text-2xl text-[oklch(0.26_0.05_42)]">
+            {chapter.name}
+          </h2>
         </div>
+
         <Link to={chapter.to}>
           <RoyalButton>Travel Here</RoyalButton>
         </Link>

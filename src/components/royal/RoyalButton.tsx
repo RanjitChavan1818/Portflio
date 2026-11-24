@@ -20,9 +20,9 @@ export const RoyalButton = forwardRef<HTMLButtonElement, Props>(function RoyalBu
       {...rest}
       className={cn(
         "group relative inline-flex items-center justify-center gap-2 px-7 py-3",
-        "font-royal text-xs tracking-[0.28em] uppercase transition-all duration-300",
-        "carved active:translate-y-[2px] disabled:pointer-events-none disabled:opacity-60",
-        variant === "brass" && "brass-surface hover:brightness-110",
+        "font-royal text-sm tracking-[0.28em] uppercase transition-all duration-300",
+        "carved active:translate-y-[4px] disabled:pointer-events-none disabled:opacity-60",
+        variant === "brass" && "brass-surface hover:brightness-120",
         variant === "stone" &&
           "bg-secondary text-foreground hover:bg-secondary/80 border border-primary/30",
         variant === "ghost" &&

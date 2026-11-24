@@ -19,8 +19,8 @@ export interface Chapter {
 }
 
 export const CHAPTERS: Chapter[] = [
-  { n: 1, to: "/", name: "Royal Gate", subtitle: "The Entrance", x: 12, y: 74 },
-  { n: 2, to: "/chronicle", name: "Royal Chronicle", subtitle: "The Story", x: 27, y: 46 },
+  { n: 1, to: "/", name: "Ranjit Chavan", subtitle: "The Entrance", x: 12, y: 74 },
+  { n: 2, to: "/chronicle", name: "Royal Chronicle", subtitle: "The Story", x: 37, y: 46 },
   {
     n: 3,
     to: "/training-grounds",
@@ -72,9 +72,9 @@ export const PROFILE = {
   role: "Computer Science Engineering Student",
   tagline: "Developer · Problem Solver · Builder · Continuous Learner",
   email: "ranjitchavan.dev@gmail.com",
-  linkedin: "https://www.linkedin.com/in/ranjit-chavan",
-  github: "https://github.com/ranjitchavan",
-  resume: "/resume.pdf",
+  linkedin: "https://www.linkedin.com/in/ranjit-chavan-9746872a4/",
+  github: "https://github.com/RanjitChavan1818",
+  resume: "https://drive.google.com/file/d/1GgP8jtCz9v7vydrgWs2PG0LW5YddQ-FG/view?usp=sharing",
 };
 
 export interface Skill {
@@ -87,7 +87,7 @@ export const SKILLS: Skill[] = [
   {
     name: "Python",
     note: "5-Star HackerRank",
-    detail: "Used across automation, data work, and daily problem solving.",
+    detail: "Strong foundation in Python programming, data structures and developing practical solutions."
   },
   {
     name: "Django",
@@ -102,7 +102,7 @@ export const SKILLS: Skill[] = [
   {
     name: "JavaScript",
     note: "The Common Tongue",
-    detail: "ES6+, async flows, DOM work and browser APIs.",
+  detail: "Skilled in DOM manipulation, browser APIs, and building dynamic, interactive web applications.",
   },
   {
     name: "PostgreSQL",
@@ -139,6 +139,26 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+  id: "pralay",
+  title: "Pralay",
+  scrollTitle: "The Coastal Guardian's Chronicle",
+  summary: "An AI-powered coastal hazard reporting and disaster intelligence platform.",
+  detail:
+    "A Progressive Web App designed to strengthen coastal disaster management through real-time hazard reporting, AI-powered image verification, social media intelligence, an authority dashboard, offline report capture and multilingual support for flood, tsunami and cyclone alerts.",
+  tech: ["React", "Python", "Django", "AI/ML", "PWA", "PostgreSQL"],
+  github: "https://github.com/ranjitchavan",
+},
+  {
+    id: "hackathon",
+    title: "Hackathon Registration Website",
+    scrollTitle: "The Tournament Roll",
+    summary: "Registration portal used for a college hackathon.",
+    detail:
+      "A team registration portal handling participant data, team formation, validation and an organiser view for managing entries at scale during the event.",
+    tech: ["Django", "JavaScript", "PostgreSQL"],
+    github: "https://github.com/ranjitchavan",
+  },
+   {
     id: "divyadarshan",
     title: "Divyadarshan",
     scrollTitle: "The Pilgrim's Decree",
@@ -146,16 +166,6 @@ export const PROJECTS: Project[] = [
     detail:
       "A full-stack platform to streamline temple darshan bookings — slot management, devotee registration, queue handling and an administrative dashboard for temple authorities.",
     tech: ["Django", "Python", "PostgreSQL", "JavaScript"],
-    github: "https://github.com/ranjitchavan",
-  },
-  {
-    id: "pustakmart",
-    title: "PustakMart",
-    scrollTitle: "The Book Bazaar Ledger",
-    summary: "An online bookstore with cart, catalogue and orders.",
-    detail:
-      "An e-commerce experience for books: catalogue browsing, search, cart and checkout flow, order history and an admin inventory panel.",
-    tech: ["Django", "PostgreSQL", "Bootstrap", "Python"],
     github: "https://github.com/ranjitchavan",
   },
   {
@@ -168,26 +178,17 @@ export const PROJECTS: Project[] = [
     tech: ["React", "JavaScript", "Algorithms"],
     github: "https://github.com/ranjitchavan",
   },
-  {
-    id: "learnex",
-    title: "LearNex",
-    scrollTitle: "The Scholar's Compact",
-    summary: "A learning platform for structured course journeys.",
-    detail:
-      "A learning management experience with courses, modular lessons, progress tracking and role-based access for learners and instructors.",
-    tech: ["Django", "React", "PostgreSQL"],
-    github: "https://github.com/ranjitchavan",
-  },
-  {
-    id: "hackathon",
-    title: "Hackathon Registration Website",
-    scrollTitle: "The Tournament Roll",
-    summary: "Registration portal used for a college hackathon.",
-    detail:
-      "A team registration portal handling participant data, team formation, validation and an organiser view for managing entries at scale during the event.",
-    tech: ["Django", "JavaScript", "PostgreSQL"],
-    github: "https://github.com/ranjitchavan",
-  },
+{
+  id: "hr-analytics",
+  title: "HR Analytics Dashboard",
+  scrollTitle: "The Chronicle of the Workforce",
+  summary: "A data-driven dashboard for workforce insights and HR decision-making.",
+  detail:
+    "An interactive analytics dashboard designed to transform employee data into actionable insights. It helps HR teams analyze employee demographics, workforce distribution, hiring trends, attrition rates and key performance indicators through interactive visualizations and reports.",
+  tech: ["Power BI", "DAX", "Power Query", "Excel", "Data Analytics"],
+  github: "YOUR_HR_ANALYTICS_GITHUB_URL",
+},
+  
 ];
 
 export interface Victory {
@@ -201,19 +202,29 @@ export interface Victory {
 export const VICTORIES: Victory[] = [
   {
     id: "sinhgad-hackathon",
-    title: "Sinhgad Hackathon — Winner",
+    title: "Teckathon — Winner",
     kind: "trophy",
     year: "2025",
     detail:
-      "Won the Sinhgad Hackathon with a team-built solution delivered end-to-end under time pressure.",
+      "Won the Hackathon with my team at NBN  Sinhgad College Solapur .",
   },
-  {
-    id: "sinhgad-carnival",
-    title: "Sinhgad Carnival — Achievement",
+    {
+    id: "dp700",
+    title: "Microsoft Fabric DP-700",
     kind: "medal",
-    year: "2024",
-    detail: "Recognised at the Sinhgad Carnival technical events for project and problem-solving performance.",
+    year: "2025",
+    detail:
+      "Certified in Microsoft Fabric data engineering — lakehouses, pipelines, and analytics workloads.",
   },
+    {
+    id: "sinhgad-hackathon",
+    title: "sinhgad hackathon — Winner",
+    kind: "trophy",
+    year: "2024",
+    detail:
+      "Won the Hackathon with my team at our College in Second Year .",
+  },
+
   {
     id: "hackerrank",
     title: "HackerRank Python — 5 Star",
@@ -221,29 +232,15 @@ export const VICTORIES: Victory[] = [
     year: "2024",
     detail: "Earned a 5-star rating in Python through sustained problem-solving practice.",
   },
-  {
-    id: "codechef",
-    title: "CodeChef — Competitive Programming",
+    {
+    id: "sinhgad-carnival",
+    title: "Sinhgad Carnival — Achievement",
     kind: "medal",
     year: "2024",
-    detail: "Regular contest participation, sharpening algorithms, speed and accuracy.",
+    detail: "Secured Runner-Up position in Group Dance at Sinhgad Carnival.",
   },
-  {
-    id: "dp700",
-    title: "Microsoft Fabric DP-700",
-    kind: "seal",
-    year: "2025",
-    detail:
-      "Certified in Microsoft Fabric data engineering — lakehouses, pipelines, and analytics workloads.",
-  },
-  {
-    id: "certifications",
-    title: "Additional Certifications",
-    kind: "seal",
-    year: "2023—2026",
-    detail:
-      "Coursework and certifications spanning cloud fundamentals, data engineering, AI/ML and web development.",
-  },
+
+  
 ];
 
 export interface BookChapter {
@@ -258,10 +255,11 @@ export const BOOKS: BookChapter[] = [
     n: "BOOK 01",
     title: "The Beginning",
     year: "2023",
-    pages: [
-      "The first year of Computer Science Engineering. C and core programming fundamentals — memory, logic, and the discipline of making a machine obey.",
-      "First lines of Python. First stubborn bugs. The realisation that building software is less about syntax and more about thinking clearly.",
-    ],
+    pages:[
+  "My first laptop introduced me to a new world. I started exploring programming and learning how computers work. C was my first programming language, where I built a foundation in logic, problem-solving, and programming fundamentals.",
+
+  "Later, I started learning Python. Writing my first programs, fixing errors, and trying new ideas made me more confident and increased my interest in building things with code."
+]
   },
   {
     n: "BOOK 02",
@@ -277,7 +275,7 @@ export const BOOKS: BookChapter[] = [
     title: "The Builder",
     year: "2025",
     pages: [
-      "Django and React turned exercises into products: Divyadarshan, PustakMart, Algosys, LearNex and a hackathon registration portal used in a live event.",
+      "Django and React turned exercises into products: Pralay, Divyadarshan, Algosys, LearNex and a hackathon registration portal used in a live event.",
       "The Sinhgad Hackathon was won this year — proof that shipping under constraint is its own skill.",
     ],
   },
@@ -295,8 +293,9 @@ export const BOOKS: BookChapter[] = [
     title: "The Next Chapter",
     year: "2027",
     pages: [
-      "Ahead: deeper systems work, production-grade data platforms, and engineering roles where craft and curiosity both matter.",
-      "The pages here are still blank — deliberately. The next chapter is written with whoever joins the journey.",
-    ],
+  "I look forward to exploring new technologies, improving my skills, and building real-world solutions. My goal is to grow as a software engineer and take on meaningful challenges.",
+
+  "The journey is still unfolding. There is more to learn, more to build, and many new opportunities ahead. The next chapter is yet to be written."
+]
   },
 ];

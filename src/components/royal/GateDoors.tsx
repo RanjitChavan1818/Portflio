@@ -22,11 +22,25 @@ export function GateDoor({ side, open }: DoorProps) {
         boxShadow: "inset 0 0 60px oklch(0 0 0 / 0.75)",
       }}
       initial={false}
-      animate={{
-        rotateY: open ? (isLeft ? 82 : -82) : 0,
-        filter: open ? "brightness(0.45)" : "brightness(1)",
-      }}
-      transition={{ duration: 2.4, ease: [0.32, 0, 0.2, 1], delay: isLeft ? 0.9 : 1.05 }}
+      
+animate={{
+  rotateY: open ? (isLeft ? 105 : -105) : 0,
+  filter: open ? "brightness(0.65)" : "brightness(1)",
+  scale: open ? 0.98 : 1,
+}}
+transition={{
+  rotateY: {
+    duration: 2.8,
+    ease: [0.22, 1, 0.36, 1],
+    delay: isLeft ? 0.4 : 0.55,
+  },
+  filter: {
+    duration: 2,
+  },
+  scale: {
+    duration: 2.8,
+  },
+}}
     >
       {/* vertical plank seams */}
       <div

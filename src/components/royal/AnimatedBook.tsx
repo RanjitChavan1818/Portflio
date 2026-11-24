@@ -41,9 +41,9 @@ export function AnimatedBook({
       >
         {/* left page */}
         <Page side="left">
-          <p className="font-royal text-[10px] tracking-[0.35em] text-ink/60 uppercase">{book.n}</p>
+          <p className="font-royal text-[13px] tracking-[0.35em] text-ink/90 uppercase">{book.n}</p>
           <h2 className="mt-2 font-royal text-2xl text-ink">{book.title}</h2>
-          <p className="mt-1 font-royal text-xs tracking-[0.3em] text-ink/60">{book.year}</p>
+          <p className="mt-1 font-royal text-xs tracking-[0.3em] text-ink/80">{book.year}</p>
           <div className="my-4 h-px w-24 bg-ink/25" />
           <p className="font-script text-[17px] leading-relaxed text-ink/85">{book.pages[0]}</p>
         </Page>
@@ -58,7 +58,7 @@ export function AnimatedBook({
               <button
                 onClick={() => turn("prev")}
                 disabled={page === 0}
-                className="font-royal text-[10px] tracking-[0.25em] text-ink/60 uppercase disabled:opacity-30"
+                className="font-royal text-[10px] tracking-[0.25em] text-ink/90 uppercase "
               >
                 ← Previous page
               </button>
@@ -68,7 +68,7 @@ export function AnimatedBook({
               <button
                 onClick={() => turn("next")}
                 disabled={page >= book.pages.length - 1}
-                className="font-royal text-[10px] tracking-[0.25em] text-ink/60 uppercase disabled:opacity-30"
+                className="font-royal text-[10px] tracking-[0.25em] text-ink/90 uppercase "
               >
                 Next page →
               </button>
